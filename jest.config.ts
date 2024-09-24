@@ -35,7 +35,7 @@ const config: Config = {
   testEnvironmentOptions: {
     customExportConditions: [""],
   },
-  setupFiles: ["./jest.polyfills.js"],
+  // setupFiles: ["./jest.polyfills.js"],
 };
 
 export default createNextConfig(config);

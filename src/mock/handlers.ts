@@ -1,16 +1,15 @@
-import { delay, http, HttpResponse } from "msw";
+import { rest } from "msw";
 
 import { userApiFixture } from "./fixtures";
 
-import { urls } from "@/common/constants";
-
 export const handlers = [
-  http.get(`https://jsonplaceholder.typicode.com/users/`, ({ request }) => {
-    console.log('Handler', request.method, request.url)
-    return HttpResponse.json({ mocked: true })
+  rest.get(`https://jsonplaceholder.typicode.com/users`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([...userApiFixture.useGetUsersQuerySuccess]),
+    );
   }),
-  http.get(`https://jsonplaceholder.typicode.com/users/3`, ({ request }) => {
-    console.log('Handler', request.method, request.url)
-    return HttpResponse.json({ mocked: true })
+  rest.get(`https://jsonplaceholder.typicode.com/users/3`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ mocked: true }));
   }),
 ];

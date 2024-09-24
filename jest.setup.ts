@@ -1,18 +1,15 @@
-// import "@testing-library/jest-dom";
-//@ts-ignore
-const nodeFetch = require('node-fetch')
-//@ts-ignore
-global.fetch = nodeFetch
-//@ts-ignore
-global.Request = nodeFetch.Request
-import { server } from "@/mock/server";
+import "whatwg-fetch";
+import "@testing-library/jest-dom";
+import { userApi } from "./src/store/services/userApi";
 
+import { server } from "@/mock/server";
 beforeAll(async () => {
-  server.listen({onUnhandledRequest: 'error' });
+  server.listen();
 });
 
 afterEach(() => {
   server.resetHandlers();
+  userApi.util.resetApiState();
 });
 
 afterAll(() => {
