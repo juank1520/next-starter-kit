@@ -39,7 +39,7 @@ export default function ReduxExamplePage() {
             <Button onClick={handleIncrement}>Increment</Button>
             <Button onClick={handleDecrement}>Decrement</Button>
           </div>
-          {data?.map((user) => <ExampleUserItem key={user.id} user={user} />)}
+          <ExampleUserItem users={data} />
         </div>
       </section>
     </DefaultLayout>

@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 
 import ReduxExamplePage from ".";
 
-import { store } from "@/store/store";
+import { store } from "@/store";
 
 beforeEach(() => {
   jest.clearAllMocks();
